@@ -42,9 +42,9 @@ function App() {
                              }
       }>x</button>
       <br/>
+      <button onClick={() => number2Toggle ? (number2.includes(".") ? null : setNumber2(number2 + ".")) : (number.includes(".") ? null : setNumber(number + "."))}>.</button>
       <button onClick={() => number2Toggle ? (number2 === "-" ? setNumber2("0") : setNumber2(number2 + "0")) : (number === "-" ? setNumber("0") : setNumber(number + "0"))}>0</button>
-      <button className="operators" onClick={() => number2Toggle ? (number2.includes(".") ? null : setNumber2(number2 + ".")) : (number.includes(".") ? null : setNumber(number + "."))}>.</button>
-      <button className="operators" id="equals" onClick={() => {
+      <button onClick={() => {
         setNumberState(false);
 
         let output = 0;

@@ -22,7 +22,7 @@ button {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  background-color: #5553DF;
+  background-color: #8886E9;
   border: black;
   margin: 2px;
   color: white;
@@ -30,5 +30,5 @@ button {
 }
 
 .operators {
-  background-color: ;
+  background-color: #5553DF;
 }
