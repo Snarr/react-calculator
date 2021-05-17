@@ -43,23 +43,24 @@ function App() {
       }>*</button>
       <br/>
       <button onClick={() => number2Toggle ? setNumber2(number2 + "0") : setNumber(number + "0")}>0</button>
+      <button onClick={() => number2Toggle ? (number2.includes(".") ? null : setNumber2(number2 + ".")) : (number.includes(".") ? null : setNumber(number + "."))}>.</button>
       <button id="equals" onClick={() => {
         setNumberState(false);
         switch (operation) {
           case "+":
-            setNumber((parseInt(number) + parseInt(number2)).toString());
+            setNumber((parseFloat(number) + parseFloat(number2)).toString());
             setNumber2("")
             break;
           case "-":
-            setNumber((parseInt(number) - parseInt(number2)).toString());
+            setNumber((parseFloat(number) - parseFloat(number2)).toString());
             setNumber2("")
             break;
           case "*":
-            setNumber((parseInt(number) * parseInt(number2)).toString());
+            setNumber((parseFloat(number) * parseFloat(number2)).toString());
             setNumber2("")
             break;
           case "/":
-            setNumber((parseInt(number) / parseInt(number2)).toString());
+            setNumber((parseFloat(number) / parseFloat(number2)).toString());
             setNumber2("")
             break;
           default:
