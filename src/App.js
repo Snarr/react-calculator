@@ -62,6 +62,9 @@ function App() {
             setNumber((parseInt(number) / parseInt(number2)).toString());
             setNumber2("")
             break;
+          default:
+            setNumber("")
+            break;
         }
       }}>=</button>
       <button onClick={() => {
