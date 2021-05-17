@@ -2,14 +2,24 @@ body {
   background-color: #4357AD;
 }
 
+.App p {
+  height: 20px;
+  width: 200px;
+  padding: 5px;
+  margin: auto;
+  background-color: darkblue;
+  border-radius: 5px;
+  text-align: right;
+}
+
 .App {
   text-align: center;
-  width: 250px;
-  height: 300px;
+  width: fit-content;
+  height: fit-content;
   background-color: #3330D9;
   color: white;
   font-weight: 600;
-  padding-top: 20px;
+  padding: 25px;
   margin: auto;
   position: absolute;
   top: 50%;
