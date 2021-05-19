@@ -1,15 +1,23 @@
 import './App.css';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 function App() {
   const [number, setNumber] = useState("");
   const [number2, setNumber2] = useState("");
   const [operation, setOperation] = useState("");
   const [number2Toggle, setNumberState] = useState(false);
+  
+  function NumberButton({buttonNum}) {
+    return <button onClick={() => number2Toggle ? setNumber2(number2 + buttonNum) : setNumber(number + buttonNum)}>{buttonNum}</button>
+  }
 
-  useEffect(() => {
-
-  }, [operation])
+  function OperatorButton({operator}) {
+      return <button className="operators" onClick={() => {
+                                setNumberState(true);
+                                setOperation(operator);
+                             }
+      }>{operator}</button>
+  }
 
   return (
     <div className="App">
@@ -20,32 +28,20 @@ function App() {
       <button className="operators" onClick={() => number2Toggle ? (number2.includes(".") ? null : setNumber2(number2 + ".")) : (number.includes(".") ? null : setNumber(number + "."))}>.</button>
       <button className="operators">&nbsp;</button>
       <br/>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "9") : setNumber(number + "9")}>9</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "8") : setNumber(number + "8")}>8</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "7") : setNumber(number + "7")}>7</button>
-      <button className="operators" onClick={() => {
-                                setNumberState(true);
-                                setOperation("+");
-                             }
-      }>+</button>
+      <NumberButton buttonNum="9"/>
+      <NumberButton buttonNum="8"/>
+      <NumberButton buttonNum="7"/>
+      <OperatorButton operator="+" />
       <br/>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "6") : setNumber(number + "6")}>6</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "5") : setNumber(number + "5")}>5</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "4") : setNumber(number + "4")}>4</button>
-      <button className="operators" onClick={() => {
-                                setNumberState(true);
-                                setOperation("-");
-                             }
-      }>-</button>
+      <NumberButton buttonNum="6"/>
+      <NumberButton buttonNum="5"/>
+      <NumberButton buttonNum="4"/>
+      <OperatorButton operator="-" />
       <br/>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "3") : setNumber(number + "3")}>3</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "2") : setNumber(number + "2")}>2</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "1") : setNumber(number + "1")}>1</button>
-      <button className="operators" onClick={() => {
-                                setNumberState(true);
-                                setOperation("*");
-                             }
-      }>x</button>
+      <NumberButton buttonNum="3"/>
+      <NumberButton buttonNum="2"/>
+      <NumberButton buttonNum="1"/>
+      <OperatorButton operator="*" />
       <br/>
       <button>&nbsp;</button>
       <button id="equals" onClick={() => {
@@ -78,12 +74,8 @@ function App() {
         setNumber2("")
 
       }}>=</button>
-      <button onClick={() => number2Toggle ? setNumber2(number2 + "0") : setNumber(number + "0")}>0</button>
-      <button className="operators" onClick={() => {
-                                setNumberState(true);
-                                setOperation("/");
-                             }
-      }>/</button>
+      <NumberButton buttonNum="0"/>
+      <OperatorButton operator="/" />
     </div>
   );
 }
